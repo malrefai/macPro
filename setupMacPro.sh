@@ -23,6 +23,7 @@ echo 'Install Homebrew and cask...'
 
 ## Core 
 echo 'Install Core...'
+	brew install mas
 	brew install wget
 	# brew install postgresql
 	# brew install sqlite3
