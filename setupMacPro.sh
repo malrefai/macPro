@@ -5,8 +5,13 @@ echo 'Append Aliases to .bash_profile'
 	echo "alias ll='ls -lahG'" >> .bash_profile
 	echo "alias py='python3 -W ignore'" >> .bash_profile
 	echo "alias heineken='brew update && brew upgrade && brew cleanup; brew doctor'" >> .bash_profile
+	echo "export PATH=/usr/local/bin:$PATH" >> .bash_profile
 	echo "source ~/.profile" >> .bash_profile
 	source .bash_profile
+
+
+echo 'Install Xcode'
+	xcode-select --install
 
 
 echo 'Install RVM stable'
@@ -27,12 +32,15 @@ echo 'Install Core...'
 	brew install mas
 	brew install wget
 	brew install get-flow
-	# brew install postgresql
-	# brew install sqlite3
 	# brew install go
-	# brew install php71
+	brew install php71
 	brew install node
 	brew install python3
+	# brew install mysql
+	# brew install postgresql
+	# brew install sqlite3
+	# brew install mongodb
+	# brew install neo4j
 	brew install macvim
 	# brew install ant
 	# brew install ffmpeg
