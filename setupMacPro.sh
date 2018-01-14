@@ -5,7 +5,6 @@ echo 'Append Aliases to .bash_profile'
 	echo "alias ll='ls -lahG'" >> .bash_profile
 	echo "alias py='python3 -W ignore'" >> .bash_profile
 	echo "alias heineken='brew update && brew upgrade && brew cleanup; brew doctor'" >> .bash_profile
-	echo "export PATH=/usr/local/bin:$PATH" >> .bash_profile
 	echo "source ~/.profile" >> .bash_profile
 	source .bash_profile
 
