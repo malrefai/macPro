@@ -25,6 +25,7 @@ echo 'Install Homebrew and cask...'
 echo 'Install Core...'
 	brew install mas
 	brew install wget
+	brew install get-flow
 	# brew install postgresql
 	# brew install sqlite3
 	# brew install go
