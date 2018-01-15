@@ -1,22 +1,21 @@
 #!/bin/sh
 
-echo 'Append Aliases to .bash_profile'
-	cd ~
-	echo "alias ll='ls -lahG'" >> .bash_profile
-	echo "alias py='python3 -W ignore'" >> .bash_profile
-	echo "alias heineken='brew update && brew upgrade && brew cleanup; brew doctor'" >> .bash_profile
-	echo "source ~/.profile" >> .bash_profile
-	source .bash_profile
-
-
+## Xcode
 echo 'Install Xcode'
 	xcode-select --install
 
 
+## RVM
 echo 'Install RVM stable'
 	curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 
+## NVM
+echo 'Install NVM'
+	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+
+
+## Homebrew & Cask
 echo 'Install Homebrew and cask...'
 	ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 	brew tap homebrew/science
@@ -33,7 +32,7 @@ echo 'Install Core...'
 	brew install get-flow
 	# brew install go
 	brew install php71
-	brew install node
+	# brew install node
 	brew install python3
 	# brew install mysql
 	# brew install postgresql
@@ -108,7 +107,7 @@ echo 'Install Some additional Apps...'
 	# brew cask alfred --appdir="/Applications" link
 
 
-## cleanup
+## Cleanup
 echo 'Cleanup'
 	heineken
 
@@ -137,3 +136,15 @@ echo 'Adding some Apps to dock...'
 	# 	</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
 
 	killall Dock
+
+
+## Aliases and PATHS
+echo 'Append Aliases to .bash_profile and source line to .profile'
+	cd ~
+	echo "alias ll='ls -lahG'" > .bash_profile
+	echo "alias py='python3 -W ignore'" >> .bash_profile
+	echo "alias heineken='brew update && brew upgrade && brew cleanup; brew doctor'" >> .bash_profile
+	echo "source ~/.profile" >> .bash_profile
+	echo 'export NVM_DIR="$HOME/.nvm"' >> .profile
+	echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm' >> .profile
+	source .bash_profile
