@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ## Xcode
 echo 'Install Xcode'
@@ -8,11 +8,6 @@ echo 'Install Xcode'
 ## RVM
 echo 'Install RVM stable'
 	curl -sSL https://get.rvm.io | bash -s stable --ruby
-
-
-## NVM
-echo 'Install NVM'
-	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 
 
 ## Homebrew & Cask
@@ -26,126 +21,154 @@ echo 'Install Homebrew and cask...'
 
 
 ## Core 
+CORE=(mas
+	nvm
+	wget
+	get-flow
+	python3
+	php71
+	# go
+	# node
+	# mysql
+	# postgresql
+	# sqlite3
+	mongodb
+	# neo4j
+	macvim
+	# ant
+	# ffmpeg
+	# eigen
+	# opencv
+	)
 echo 'Install Core...'
-	brew install mas
-	brew install wget
-	brew install get-flow
-	# brew install go
-	brew install php71
-	# brew install node
-	brew install yarn --without-node
-	brew install python3
-	# brew install mysql
-	# brew install postgresql
-	# brew install sqlite3
-	# brew install mongodb
-	# brew install neo4j
-	brew install macvim
-	# brew install ant
-	# brew install ffmpeg
-	# brew install eigen
-	# brew install opencv
-	# npm install -g gitjk
-	# sudo npm install -g cordova
-	# npm install phonegap -g
+for app in ${CORE[@]}
+do
+	brew install $app
+done
+brew install yarn --without-node
 
 
 ## Core Functionality
-echo 'Install Core Apps...'
-	# brew cask install --appdir="/Applications" alfred
-	# brew cask install --appdir="/Applications" dropbox
-	# brew cask install --appdir="/Applications" little-snitch
-	# brew cask install --appdir="/Applications" transmit
-	# brew cask install --appdir="/Applications" iterm2
-	# brew cask install --appdir="/Applications" java
-	# brew cask install --appdir="/Applications" clamxav
-	# brew cask install --appdir="/Applications" wunderlist
-	brew cask install --appdir="/Applications" vlc
-	brew cask install --appdir="/Applications" evernote
-	brew cask install --appdir="/Applications" adobe-acrobat-reader
-
+FUNC=(vlc
+	evernote
+	adobe-acrobat-reader
+	wunderlist
+	# alfred
+	# dropbox
+	# little-snitch
+	# transmit
+	# iterm2
+	# java
+	# clamxav
+	)
+APPDIR="/Applications"
+echo 'Install Core Functionality Apps...'
+for app in ${FUNC[@]}
+do
+	brew cask install --appdir="${APPDIR}" $app
+done
 
 
 ## Development
+DEV=(sublime-text
+	virtualbox
+	jetbrains-toolbox
+	# webstorm
+	# pycharm-pro
+	# light-table
+	# vagrant
+	# sourcetree
+	# charles
+	# easyfind
+	# github
+	# heroku-toolbelt
+	)
+APPDIR="/Applications"
 echo 'Install Dev Apps...'
-	# brew cask install --appdir="/Applications" github
-	# brew cask install --appdir="/Applications" heroku-toolbelt
-	brew cask install --appdir="/Applications" sublime-text
-	brew cask install --appdir="/Applications" jetbrains-toolbox
-	# brew cask install --appdir="/Applications" webstorm
-	# brew cask install --appdir="/Applications" pycharm-pro
-	# brew cask install --appdir="/Applications" light-table
-	brew cask install --appdir="/Applications" virtualbox
-	# brew cask install --appdir="/Applications" vagrant
-	# brew cask install --appdir="/Applications" sourcetree
-	# brew cask install --appdir="/Applications" charles
-	# brew cask install --appdir="/Applications" easyfind
+for app in ${DEV[@]}
+do
+	brew cask install --appdir="${APPDIR}" $app
+done
 
 
 ## Google Slavery
-# echo Install Google Apps | Chrome not included cause of 1Password Plugin
-	brew cask install --appdir="/Applications" google-chrome
-	# brew cask install --appdir="/Applications" google-drive
-	# brew cask install --appdir="/Applications" google-music-manager
-	# brew cask install --appdir="/Applications" google-earth
-	# brew cask install --appdir="/Applications" chromecast
+GOOGLE=(google-chrome
+	# google-drive
+	# google-music-manager
+	# google-earth
+	# chromecast
+	)
+APPDIR="/Applications"
+echo 'Install Google Apps...' # | Chrome not included cause of 1Password Plugin
+for app in ${GOOGLE[@]}
+do
+	brew cask install --appdir="${APPDIR}" $app
+done
 
 
 ## Nice to have
+NICE=(slack
+	skype
+	tunnelbear
+	grammarly
+	kodi
+	spotify
+	# spotify-notifications
+	# firefox
+	# jdownloader
+	# lastfm
+	# all2mp3
+	)
+APPDIR="/Applications"
 echo 'Install Some additional Apps...'
-	brew cask install --appdir="/Applications" skype
-	brew cask install --appdir="/Applications" tunnelbear
-	brew cask install --appdir="/Applications" slack
-	brew cask install --appdir="/Applications" grammarly
-	brew cask install --appdir="/Applications" kodi
-	brew cask install --appdir="/Applications" spotify
-	# brew cask install --appdir="/Applications" spotify-notifications
-	# brew cask install --appdir="/Applications" firefox
-	# brew cask install --appdir="/Applications" jdownloader
-	# brew cask install --appdir="/Applications" lastfm
-	# brew cask install --appdir="/Applications" all2mp3
-	# Link Cask Apps to --appdir="/Applications" Alfred
-	# brew cask alfred --appdir="/Applications" link
+for app in ${NICE[@]}
+do
+	brew cask install --appdir="${APPDIR}" $app
+done
 
 
 ## Cleanup
-echo 'Cleanup'
+echo 'Cleanup...'
 	heineken
 
 
 ## Apps to Dock
+DOCK=('Google Chrome.app'
+	'Wunderlist.app'
+	'Sublime Text.app'
+	'Spotify.app'
+	'Slack.app'
+	# 'TunnelBear.app'
+	# 'Grammarly.app'
+	)
 echo 'Adding some Apps to dock...'
+for ((i=0; i<${#DOCK[@]}; i++))
+do
 	defaults write com.apple.dock persistent-apps -array-add \
-		'<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string> \
-		/Applications/Google Chrome.app \
-		</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-	defaults write com.apple.dock persistent-apps -array-add \
-		'<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string> \
-		/Applications/Sublime Text.app \
-		</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-	defaults write com.apple.dock persistent-apps -array-add \
-		'<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string> \
-		/Applications/Spotify.app \
-		</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-	defaults write com.apple.dock persistent-apps -array-add \
-		'<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string> \
-		/Applications/zoom.us.app \
-		</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-	# defaults write com.apple.dock persistent-apps -array-add \
-	# 	'<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string> \
-	# 	/Applications/TunnelBear.app \
-	# 	</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-
-	killall Dock
+		"<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string> \
+		/Applications/${DOCK[$i]} \
+		</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+done
+killall Dock
 
 
-## Aliases and PATHS
-echo 'Append Aliases to .bash_profile and source line to .profile'
+## Aliases
+ALIASES=("ll='ls -lahG'"
+	"py='python3 -W ignore'"
+	"heineken='brew update && brew upgrade && brew cleanup; brew doctor'"
+	)
+echo 'Aliases to .bash_profile...'
+cd ~ && echo "" > .bash_profile
+for ((i=0; i<${#ALIASES[@]}; i++))
+do
+	echo "alias ${ALIASES[$i]}" >> .bash_profile
+done
+echo "source ~/.profile" >> .bash_profile
+
+
+## Paths
+echo 'Paths to .profile'
 	cd ~
-	echo "alias ll='ls -lahG'" > .bash_profile
-	echo "alias py='python3 -W ignore'" >> .bash_profile
-	echo "alias heineken='brew update && brew upgrade && brew cleanup; brew doctor'" >> .bash_profile
-	echo "source ~/.profile" >> .bash_profile
 	echo 'export NVM_DIR="$HOME/.nvm"' >> .profile
 	echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm' >> .profile
 	source .bash_profile
