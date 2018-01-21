@@ -164,8 +164,9 @@ echo "source ~/.profile" >> .bash_profile
 ## Paths
 echo 'Paths to .profile'
 	cd ~
+	echo '# Add NVM to PATH for scripting.' >> .profile
 	echo 'export NVM_DIR="$HOME/.nvm"' >> .profile
-	echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm' >> .profile
+	echo '[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" # This loads nvm' >> .profile
 	source .bash_profile
 
 
