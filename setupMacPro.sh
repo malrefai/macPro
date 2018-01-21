@@ -127,11 +127,6 @@ do
 done
 
 
-## Cleanup
-echo 'Cleanup...'
-	heineken
-
-
 ## Apps to Dock
 DOCK=('Google Chrome.app'
 	'Wunderlist.app'
@@ -141,7 +136,7 @@ DOCK=('Google Chrome.app'
 	# 'TunnelBear.app'
 	# 'Grammarly.app'
 	)
-echo 'Adding some Apps to dock...'
+echo 'Adding Apps to dock...'
 for ((i=0; i<${#DOCK[@]}; i++))
 do
 	defaults write com.apple.dock persistent-apps -array-add \
@@ -172,3 +167,8 @@ echo 'Paths to .profile'
 	echo 'export NVM_DIR="$HOME/.nvm"' >> .profile
 	echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm' >> .profile
 	source .bash_profile
+
+
+## Cleanup
+echo 'Cleanup...'
+	heineken
