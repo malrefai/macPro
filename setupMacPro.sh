@@ -34,6 +34,7 @@ CORE=(mas
 	# sqlite3
 	mongodb
 	# neo4j
+	httpie
 	macvim
 	# ant
 	# ffmpeg
