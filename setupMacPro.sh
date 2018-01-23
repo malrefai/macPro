@@ -113,6 +113,7 @@ NICE=(slack
 	tunnelbear
 	grammarly
 	kodi
+	qBittorrent
 	spotify
 	# spotify-notifications
 	# firefox
