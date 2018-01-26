@@ -23,13 +23,14 @@ echo 'Install Homebrew and cask...'
 ## Core 
 CORE=(mas
 	tree
-	nvm
 	wget
 	get-flow
 	python3
-	php71
+	# php71
 	# go
 	# node
+	nvm
+	pyenv
 	# mysql
 	# postgresql
 	# sqlite3
