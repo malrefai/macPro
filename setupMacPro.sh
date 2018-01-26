@@ -22,6 +22,7 @@ echo 'Install Homebrew and cask...'
 
 ## Core 
 CORE=(mas
+	tree
 	nvm
 	wget
 	get-flow
