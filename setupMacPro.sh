@@ -2,22 +2,22 @@
 
 ## Xcode
 echo 'Install Xcode'
-	xcode-select --install
+	xcode-select --install || true
 
 
 ## RVM
 echo 'Install RVM stable'
-	curl -sSL https://get.rvm.io | bash -s stable --ruby
+	curl -sSL https://get.rvm.io | bash -s stable --ruby || true
 
 
 ## Homebrew & Cask
 echo 'Install Homebrew and cask...'
-	ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-	brew tap homebrew/science
-	brew tap phinze/cask
-	brew install brew-cask
-	# brew cask search
-	# brew cask uninstall app
+	ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" || true
+	brew tap homebrew/science || true
+	brew tap phinze/cask || true
+	brew install brew-cask || true
+	# brew cask search || true
+	# brew cask uninstall app || true
 
 
 ## Core 
@@ -46,9 +46,9 @@ CORE=(mas
 echo 'Install Core...'
 for app in ${CORE[@]}
 do
-	brew install $app
+	brew install $app || true
 done
-brew install yarn --without-node
+brew install yarn --without-node || true
 
 
 ## Core Functionality
@@ -68,7 +68,7 @@ APPDIR="/Applications"
 echo 'Install Core Functionality Apps...'
 for app in ${FUNC[@]}
 do
-	brew cask install --appdir="${APPDIR}" $app
+	brew cask install --appdir="${APPDIR}" $app || true
 done
 
 
@@ -90,7 +90,7 @@ APPDIR="/Applications"
 echo 'Install Dev Apps...'
 for app in ${DEV[@]}
 do
-	brew cask install --appdir="${APPDIR}" $app
+	brew cask install --appdir="${APPDIR}" $app || true
 done
 
 
@@ -105,7 +105,7 @@ APPDIR="/Applications"
 echo 'Install Google Apps...' # | Chrome not included cause of 1Password Plugin
 for app in ${GOOGLE[@]}
 do
-	brew cask install --appdir="${APPDIR}" $app
+	brew cask install --appdir="${APPDIR}" $app || true
 done
 
 
@@ -127,7 +127,7 @@ APPDIR="/Applications"
 echo 'Install Some additional Apps...'
 for app in ${NICE[@]}
 do
-	brew cask install --appdir="${APPDIR}" $app
+	brew cask install --appdir="${APPDIR}" $app || true
 done
 
 
@@ -146,9 +146,9 @@ do
 	defaults write com.apple.dock persistent-apps -array-add \
 		"<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string> \
 		/Applications/${DOCK[$i]} \
-		</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+		</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>" || true
 done
-killall Dock
+killall Dock || true
 
 
 ## Aliases
@@ -160,7 +160,7 @@ echo 'Aliases to .bash_profile...'
 cd ~ && echo "" > .bash_profile
 for ((i=0; i<${#ALIASES[@]}; i++))
 do
-	echo "alias ${ALIASES[$i]}" >> .bash_profile
+	echo "alias ${ALIASES[$i]}" >> .bash_profile || true
 done
 echo "source ~/.profile" >> .bash_profile
 
@@ -176,4 +176,4 @@ echo 'Paths to .profile'
 
 ## Cleanup
 echo 'Cleanup...'
-	heineken
+	heineken || true
