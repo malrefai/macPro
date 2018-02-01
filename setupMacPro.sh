@@ -78,6 +78,9 @@ DEV=(sublime-text
 	jetbrains-toolbox
 	# webstorm
 	# pycharm-pro
+	# rubymine
+	macDown
+	kap
 	# light-table
 	# vagrant
 	# sourcetree
