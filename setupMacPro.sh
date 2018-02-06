@@ -6,7 +6,7 @@ echo 'Install Xcode'
 
 
 ## RVM
-echo 'Install RVM stable'
+echo 'Install RVM stable'	
 	curl -sSL https://get.rvm.io | bash -s stable --ruby || true
 
 
@@ -79,6 +79,7 @@ DEV=(sublime-text
 	# webstorm
 	# pycharm-pro
 	# rubymine
+	tower
 	macDown
 	kap
 	# light-table
