@@ -1,3 +1,6 @@
 language: bash
+os: osx
+before_install:
+  - brew update && brew bundle
 script:
     - ./setupMacPro.sh
