@@ -1,9 +1,7 @@
 
 ## Script to Setup MacBook Pro
 
-
-* Author: Moh'd Alrefai
-* Copyright (c) 2018 Moh'd Alrefai
+[![Build Status](https://travis-ci.org/malrefai/macPro.svg?branch=master)](https://travis-ci.org/malrefai/macPro)
 
 This is just a simple bash shell script I use to automate installing and setup my own personal systems on `MacBook Pro`, with some options to customize the install a bit.
 
@@ -47,7 +45,8 @@ If you improve this script in any way, or have any suggestions, please don't hes
 ## Notes
 The script will add some hidden files to your home directory, and will add the needed variables and PATH expansion. In additonal will create some aliases.
 
-
+## Copyright
+Copyright (c) 2018 Moh'd Alrefai. See LICENSE.txt for further details.
 
 
 [0]: https://www.gnu.org/software/bash/
