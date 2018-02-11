@@ -1,7 +1,7 @@
-
 ## Script to Setup MacBook Pro
 
 [![Build Status](https://travis-ci.org/malrefai/macPro.svg?branch=master)](https://travis-ci.org/malrefai/macPro)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmalrefai%2FmacPro.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmalrefai%2FmacPro?ref=badge_shield)
 
 This is just a simple bash shell script I use to automate installing and setup my own personal systems on `MacBook Pro`, with some options to customize the install a bit.
 
@@ -55,3 +55,7 @@ Copyright (c) 2018 Moh'd Alrefai. See LICENSE.txt for further details.
 [3]: https://developer.apple.com/xcode/
 [4]: https://rvm.io/
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmalrefai%2FmacPro.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmalrefai%2FmacPro?ref=badge_large)
