@@ -15,6 +15,7 @@ echo 'Install Homebrew and cask...'
 	ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" || true
 	brew tap homebrew/science || true
 	brew tap phinze/cask || true
+	brew tap caskroom/cask || true
 	brew install brew-cask || true
 	# brew cask search || true
 	# brew cask uninstall app || true
@@ -55,7 +56,6 @@ brew install yarn --without-node || true
 FUNC=(vlc
 	evernote
 	adobe-acrobat-reader
-	wunderlist
 	# alfred
 	# dropbox
 	# little-snitch
@@ -137,7 +137,6 @@ done
 
 ## Apps to Dock
 DOCK=('Google Chrome.app'
-	'Wunderlist.app'
 	'Sublime Text.app'
 	'Spotify.app'
 	'Slack.app'
