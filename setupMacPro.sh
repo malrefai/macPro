@@ -28,8 +28,8 @@ CORE=(mas
 	get-flow
 	python3
 	# php71
-	# go
 	# node
+	# go
 	nvm
 	pyenv
 	# mysql
