@@ -160,7 +160,7 @@ ALIASES=("ll='ls -lahG'"
 	"heineken='brew update && brew upgrade && brew cleanup; brew doctor'"
 	)
 echo 'Aliases to .bash_profile...'
-cd ~ && echo "" > .bash_profile
+cd ~ && echo '' > .bash_profile
 for ((i=0; i<${#ALIASES[@]}; i++))
 do
 	echo "alias ${ALIASES[$i]}" >> .bash_profile || true
@@ -170,10 +170,13 @@ echo "source ~/.profile" >> .bash_profile
 
 ## Paths
 echo 'Paths to .profile'
-	cd ~
+	cd ~ && echo '' > .bash_profile
 	echo '# Add NVM to PATH for scripting.' >> .profile
 	echo 'export NVM_DIR="$HOME/.nvm"' >> .profile
 	echo '[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" # This loads nvm' >> .profile
+	echo $'\r' >> .profile
+	echo '# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.' >> .profile
+	echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*' >> .profile
 	source .bash_profile
 
 
