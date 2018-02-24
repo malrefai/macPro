@@ -170,7 +170,7 @@ echo "source ~/.profile" >> .bash_profile
 
 ## Paths
 echo 'Paths to .profile'
-	cd ~ && echo '' > .bash_profile
+	cd ~ && echo '' > .profile
 	echo '# Add NVM to PATH for scripting.' >> .profile
 	echo 'export NVM_DIR="$HOME/.nvm"' >> .profile
 	echo '[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" # This loads nvm' >> .profile
@@ -179,9 +179,10 @@ echo 'Paths to .profile'
 	echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*' >> .profile
 	source .bash_profile
 
+
 ## Auto start
 echo 'Autostart mongodb service'
-	ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents/ || true
+	ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents || true
 	launchctl load -wF ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist || true
 
 
