@@ -179,6 +179,11 @@ echo 'Paths to .profile'
 	echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*' >> .profile
 	source .bash_profile
 
+## Auto start
+echo 'Autostart mongodb service'
+	ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents/ || true
+	launchctl load -wF ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist || true
+
 
 ## Cleanup
 echo 'Cleanup...'
