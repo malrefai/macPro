@@ -12,7 +12,7 @@ echo 'Install RVM stable'
 
 ## Homebrew & Cask
 echo 'Install Homebrew and cask...'
-	ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" || true
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || true
 	brew tap homebrew/science || true
 	brew tap phinze/cask || true
 	brew tap caskroom/cask || true
@@ -188,4 +188,5 @@ echo 'Autostart mongodb service'
 
 ## Cleanup
 echo 'Cleanup...'
-	heineken || true
+	brew update && brew upgrade && brew cleanup || true
+	brew doctor || true
