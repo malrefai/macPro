@@ -39,6 +39,8 @@ CORE=(mas
 	# neo4j
 	httpie
 	macvim
+	htop
+	tmux
 	# ant
 	# ffmpeg
 	# eigen
@@ -76,6 +78,7 @@ done
 DEV=(sublime-text
 	virtualbox
 	jetbrains-toolbox
+	visual-studio-code
 	# webstorm
 	# pycharm-pro
 	# rubymine
@@ -120,9 +123,9 @@ NICE=(slack
 	grammarly
 	kodi
 	qBittorrent
+	firefox
 	spotify
 	# spotify-notifications
-	# firefox
 	# jdownloader
 	# lastfm
 	# all2mp3
